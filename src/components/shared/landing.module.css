@@ -1,0 +1,507 @@
+.headerRoot {
+  background: #f6f7fb;
+  color: #1a1a1a;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topStrip {
+  background: #d7d7db;
+  color: #333;
+  font-size: 13px;
+  height: 26px;
+  padding: 0 12px 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topStripLeft,
+.topStripRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.escudoIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
+.pteIcon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+}
+
+.peBadge {
+  font-weight: 700;
+}
+
+.utilityTabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  font-weight: 700;
+  margin-left: 12px;
+  flex-wrap: nowrap;
+}
+
+.utilityTabs span {
+  padding: 3px 10px 4px;
+  border-radius: 12px 12px 0 0;
+  white-space: nowrap;
+}
+
+.utilityTabs .active {
+  background: #f6f7fb;
+}
+
+.brandBar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.brandRow {
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 58px;
+  padding: 8px 18px 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brandLeft {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+.brandLogo {
+  width: 116px;
+  height: auto;
+  display: block;
+  flex: 0 0 auto;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-weight: 700;
+  color: #333;
+  flex-wrap: wrap;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.brandRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #5d5d5d;
+  padding: 1px 4px 2px;
+  min-width: 144px;
+}
+
+.searchBox input {
+  border: 0;
+  outline: 0;
+  font-size: 14px;
+  background: transparent;
+  width: 100%;
+}
+
+.internetButton,
+.pagaloButton,
+.heroButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 800;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.internetButton:hover,
+.pagaloButton:hover,
+.heroButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-1px);
+}
+
+.pagaloButton {
+  background: #d81e05;
+  color: #fff;
+  padding: 7px 16px;
+  min-width: 106px;
+  box-shadow: 0 10px 18px rgba(216, 30, 5, 0.22);
+}
+
+.pagaloLogo {
+  display: block;
+  width: 70px;
+  height: auto;
+}
+
+.internetButton {
+  background: #d61f0d;
+  color: #fff;
+  padding: 8px 20px;
+  min-width: 154px;
+  box-shadow: 0 10px 18px rgba(214, 31, 13, 0.2);
+}
+
+.authButtons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.loginButton,
+.registerButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  padding: 8px 16px;
+  font-size: 13px;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.loginButton {
+  color: #333;
+  background: transparent;
+  border: 1px solid #999;
+}
+
+.loginButton:hover {
+  border-color: #333;
+  background: #f5f5f5;
+  transform: translateY(-1px);
+}
+
+.registerButton {
+  color: #fff;
+  background: #d61f0d;
+  box-shadow: 0 6px 12px rgba(214, 31, 13, 0.2);
+}
+
+.registerButton:hover {
+  background: #c01b0b;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(214, 31, 13, 0.3);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  background: linear-gradient(90deg, #8f0800 0%, #c31206 42%, #e22b11 76%, #e22b11 100%);
+  color: #fff;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 86% 24%, rgba(255, 255, 255, 0.08), transparent 24%),
+    radial-gradient(circle at 78% 16%, rgba(255, 255, 255, 0.12), transparent 14%);
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  max-width: 1360px;
+  margin: 0 auto;
+  min-height: 320px;
+  display: grid;
+  grid-template-columns: 1.03fr 0.97fr;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 24px 14px;
+}
+
+.heroCopy {
+  max-width: 760px;
+  padding-left: 34px;
+}
+
+.heroCopy h1 {
+  margin: 0 0 18px;
+  font-size: clamp(1.95rem, 3vw, 3.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+.heroCopy p {
+  margin: 0 0 28px;
+  font-size: 17px;
+  font-weight: 600;
+  max-width: 760px;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.heroButton {
+  background: #fff;
+  color: #d91e11;
+  padding: 9px 18px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  padding: 9px 18px;
+}
+
+.heroDots {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.heroDots span {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.06);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0.95;
+}
+
+.heroVisual {
+  position: relative;
+  height: 320px;
+}
+
+.heroVisual img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(100%, 600px);
+  height: 100%;
+  object-fit: contain;
+}
+
+.section {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 28px 24px;
+}
+
+.sectionTitle {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  color: #30353c;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.productCard {
+  background: #fff;
+  border: 1px solid #dde1ea;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(20, 20, 20, 0.05);
+  min-height: 136px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  text-align: center;
+}
+
+.productCardInner {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+.productCard img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+}
+
+.productCard span {
+  font-weight: 700;
+  font-size: 15px;
+  color: #28303a;
+}
+
+.dualSection {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.promoBlock {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 22px rgba(18, 24, 40, 0.08);
+}
+
+.promoImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.promoBody {
+  padding: 20px 22px 24px;
+}
+
+.promoBody h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: #27303a;
+}
+
+.promoBody p {
+  margin: 0;
+  color: #5a6673;
+  line-height: 1.55;
+}
+
+.newsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.newsCard {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(18, 24, 40, 0.08);
+}
+
+.newsCard img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.newsBody {
+  padding: 18px 18px 22px;
+}
+
+.newsBody h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.footer {
+  background: #20242b;
+  color: #fff;
+  padding: 20px 24px;
+  text-align: center;
+  font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+  .productGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .heroInner {
+    grid-template-columns: 1fr;
+    padding-top: 24px;
+  }
+
+  .heroVisual {
+    height: 320px;
+  }
+}
+
+@media (max-width: 920px) {
+  .brandRow,
+  .brandLeft,
+  .brandRight {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navLinks,
+  .utilityTabs {
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+
+  .utilityBar {
+    padding-bottom: 14px;
+  }
+
+  .searchBox {
+    width: 100%;
+  }
+
+  .dualSection,
+  .newsGrid,
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy {
+    padding-left: 0;
+  }
+
+  .heroCopy h1 {
+    font-size: 2.2rem;
+  }
+
+  .heroCopy p {
+    font-size: 18px;
+  }
+}
+
+

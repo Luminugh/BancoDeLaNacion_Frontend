@@ -1,0 +1,439 @@
+.bancaContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(to right, #fff 0%, #fff 85%, #f5f5f5 100%);
+  border-bottom: 1px solid #ddd;
+  padding: 12px 40px;
+}
+
+.headerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerLeft {
+  flex: 1;
+}
+
+.multiRedBrand {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.multiRedText {
+  color: #333;
+}
+
+.redText {
+  color: #c41e3a;
+}
+
+.virtualText {
+  color: #333;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.multiRedLogo {
+  height: 60px;
+  width: auto;
+}
+
+.headerRight {
+  flex: 1;
+  text-align: right;
+}
+
+.bnLogo {
+  height: 50px;
+  width: auto;
+}
+
+/* Main Content */
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.securityBadge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+
+.securityBadge svg {
+  flex-shrink: 0;
+  color: #666;
+}
+
+.securityBadge strong {
+  color: #c41e3a;
+  font-weight: 600;
+}
+
+/* Form Container */
+.formContainer {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Form Groups */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+.selectWrapper select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px;
+}
+
+.dniInputGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.dniInputGroup input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.clearBtn {
+  padding: 10px 16px;
+  background-color: #c41e3a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.clearBtn:hover {
+  background-color: #a01830;
+}
+
+/* Clave Section */
+.claveSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.claveLabel {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.numpad {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.numpadBtn {
+  padding: 12px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #333;
+}
+
+.numpadBtn:hover {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
+.numpadBtn:active {
+  background-color: #e0e0e0;
+}
+
+.claveInputGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.claveInput {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  letter-spacing: 4px;
+}
+
+.clearClaveBtn {
+  padding: 10px 16px;
+  background-color: #c41e3a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.clearClaveBtn:hover {
+  background-color: #a01830;
+}
+
+/* CAPTCHA Section */
+.captchaSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.captchaLabel {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.captchaImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #999;
+  font-family: monospace;
+  letter-spacing: 8px;
+}
+
+.captchaInput {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.captchaLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.captchaLink {
+  color: #c41e3a;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.captchaLink:hover {
+  text-decoration: underline;
+}
+
+.emoji {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  font-size: 14px;
+}
+
+/* Submit Button */
+.submitBtn {
+  padding: 12px 24px;
+  background-color: #c41e3a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.2s;
+}
+
+.submitBtn:hover {
+  background-color: #a01830;
+}
+
+.submitBtn:active {
+  background-color: #8b1628;
+}
+
+/* Security Recommendations */
+.securityRec {
+  text-align: center;
+  padding-top: 16px;
+}
+
+.securityRec a {
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.securityRec a:hover {
+  text-decoration: underline;
+}
+
+/* Form Footer */
+.formFooter {
+  text-align: center;
+  padding-top: 12px;
+  border-top: 1px dashed #ddd;
+  font-size: 12px;
+  color: #666;
+}
+
+.formFooter p {
+  margin: 0;
+}
+
+/* Page Footer */
+.footer {
+  background-color: #333;
+  color: #ccc;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-top: auto;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footerTitle {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.footerText {
+  margin: 4px 0;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .formContainer {
+    padding: 24px;
+    max-width: 100%;
+  }
+
+  .headerContent {
+    padding: 0;
+  }
+
+  .numpad {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .dniInputGroup,
+  .claveInputGroup {
+    flex-direction: column;
+  }
+
+  .clearBtn,
+  .clearClaveBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 16px;
+  }
+
+  .multiRedLogo {
+    height: 40px;
+  }
+
+  .bnLogo {
+    height: 35px;
+  }
+
+  .formContainer {
+    padding: 16px;
+  }
+
+  .numpad {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+
+  .numpadBtn {
+    padding: 10px;
+    font-size: 16px;
+  }
+}

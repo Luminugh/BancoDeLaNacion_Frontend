@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Banca por Internet - Banco de la Nación</title>
+  <style>
+    :root{--red:#bd1313;--accent:#c81a1a;--bg:#efefef}
+    html,body{height:100%}
+    body{margin:0;font-family:Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color:#222}
+    /* Topbar: red bar with centered multired badge and BN logo on right */
+    .topbar{height:62px;background:#b70f0f;display:flex;align-items:center;justify-content:space-between;padding:0 22px;color:#fff;border-bottom:4px solid rgba(0,0,0,0.06)}
+    .topbar__left{flex:1;display:flex;justify-content:flex-start}
+    .multired-badge{margin-left:16px;background:#c81a1a;padding:6px 44px;border-radius:6px 6px 14px 14px;color:#ffd24a;font-weight:800;font-size:24px;display:flex;flex-direction:column;align-items:center}
+    .multired-badge small{font-size:11px;margin-top:-6px;color:#fff}
+    .topbar__right{flex:1;display:flex;justify-content:flex-end}
+    .topbar__right img{height:44px;margin-right:18px}
+    .container{max-width:760px;margin:36px auto;padding:0 18px}
+    .secure-note{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:18px;color:#6b6b6b}
+    .secure-note strong{color:var(--red);font-weight:800}
+    .card{background:#fff;border-radius:8px;border:1px solid #d8d8d8;padding:28px 34px;box-shadow:0 12px 30px rgba(0,0,0,0.06)}
+    .card-inner{display:flex;gap:26px;align-items:flex-start}
+    .card-form{flex:1}
+    .card-side{width:220px;display:flex;flex-direction:column;gap:12px}
+    .card h2{margin:0 0 18px;font-family:Georgia, 'Times New Roman', serif;color:#333;text-align:center;font-size:22px}
+    .form-row{margin-bottom:14px}
+    label{font-weight:700;color:#4b4b4b;font-size:0.9rem;display:block;margin-bottom:6px}
+    input,select{width:100%;padding:10px;border-radius:18px;border:1px solid #d7d7d7;background:#fff}
+    .form-split{display:flex;gap:12px}
+    .keypad{display:grid;grid-template-columns:repeat(3,56px);gap:8px;margin:8px 0}
+    .keypad button{height:44px;border-radius:8px;border:1px solid #bfbfbf;background:#fafafa;font-weight:800;box-shadow:0 2px 0 rgba(0,0,0,0.03)}
+    .keypad .clear{grid-column:span 3;background:#e9e9e9}
+    .captcha{display:flex;align-items:center;gap:12px}
+    .captcha-box{background:#f6f6f6;border:1px solid #d6d6d6;padding:8px 10px;border-radius:6px;font-weight:800}
+    .form-submit{text-align:center;margin-top:18px}
+    .btn{display:inline-block;padding:12px 36px;border-radius:18px;background:linear-gradient(180deg,#d11a11,#a80b07);color:#fff;border:0;font-weight:900;box-shadow:0 6px 18px rgba(168,24,7,0.18)}
+    .card-footer{border-top:1px dashed #e6e6e6;margin-top:18px;padding-top:12px;text-align:center;color:#777}
+    .card-side .help{display:block;padding:10px;border-radius:6px;border:1px solid transparent;background:transparent;color:#c01807;font-weight:700;text-align:left}
+    .smallfoot{text-align:center;margin-top:18px;color:#777;font-size:0.9rem}
+    @media (max-width:900px){.card-inner{flex-direction:column}.card-side{width:100%}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__left"> 
+      <div class="multired">multi<strong style="color:#ffd24a">Red</strong><small style="display:block;font-size:11px;margin-top:-4px">Virtual</small></div>
+    </div>
+    <div class="topbar__right">
+      <img src="/image/logoBN.png" alt="Banco de la Nación" style="height:34px" />
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="secure-note">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1l9 4v6c0 5-3.58 9-9 12-5.42-3-9-7-9-12V5l9-4z" fill="#e12b12"/></svg>
+      <div>Usted se encuentra en una <strong style="color:#c01807">zona segura</strong></div>
+    </div>
+
+    <main class="card" role="main" aria-label="Acceso a Banca por Internet">
+      <div class="card-inner">
+        <div class="card-form">
+          <h2>Ingreso con tarjeta</h2>
+
+          <div class="form-row"><label>Seleccione</label><select><option>Multired Global Débito</option></select></div>
+          <div class="form-row"><label>Número de tarjeta</label><input value="4214 4200 0000 0000"/></div>
+
+          <div class="form-split">
+            <div><label>Tipo y N° Documento</label><select><option>DNI</option></select></div>
+            <div><label>N. de documento</label><input value="12345678"/></div>
+          </div>
+
+          <div class="form-row"><label>Ingresa tu clave usando el teclado virtual</label>
+            <div class="keypad" aria-hidden="true">
+              <button type="button">0</button><button type="button">8</button><button type="button">4</button>
+              <button type="button">7</button><button type="button">3</button><button type="button">5</button>
+              <button type="button">9</button><button type="button">1</button><button type="button">2</button>
+              <button type="button">6</button><button type="button" class="clear">LIMPIAR</button>
+            </div>
+          </div>
+
+          <div class="form-row"><label>Clave de Internet</label><input type="password"/></div>
+
+          <div class="form-row captcha"><label>Ingrese el texto de la imagen</label>
+            <div class="captcha-box">A1 2FF</div>
+            <input/>
+          </div>
+
+          <div class="form-submit"><button class="btn" type="button">INGRESAR</button></div>
+        </div>
+
+        <aside class="card-side">
+          <a class="help" href="#">Genera tu Clave de Internet</a>
+          <a class="help" href="#">Olvidé-mi-clave</a>
+          <a class="help" href="#">Recomendaciones de Seguridad</a>
+        </aside>
+      </div>
+      <div class="card-footer">Guía Cuenta de Ahorro &nbsp; Guía Cuentas Corrientes</div>
+    </main>
+
+    <p class="smallfoot">Banco de la Nación | Ministerio de Economía y Finanzas<br/>Av. Javier Prado Este 2499, San Borja. Central telefónica: 519 2000.</p>
+  </div>
+</body>
+</html>
