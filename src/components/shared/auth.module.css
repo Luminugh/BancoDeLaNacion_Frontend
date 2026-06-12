@@ -3,8 +3,10 @@
 .authPage {
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  padding: 48px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 28px 24px 48px;
   background:
     radial-gradient(circle at 12% 12%, rgba(255, 255, 255, 0.7), transparent 36%),
     radial-gradient(circle at 85% 18%, rgba(255, 255, 255, 0.5), transparent 42%),
@@ -12,6 +14,21 @@
   position: relative;
   color: #1d1d1d;
   font-family: "Montserrat", "Segoe UI", sans-serif;
+}
+
+.pageBrand {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto 24px;
+}
+
+.pageBrandLogo {
+  width: 180px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.08));
 }
 
 .authPage::before {
@@ -31,162 +48,29 @@
 }
 
 .authFrame {
-  width: min(1240px, 100%);
+  width: min(540px, 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 40px;
-  align-items: stretch;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: start;
   position: relative;
   z-index: 1;
-}
-
-.authVisual {
-  position: relative;
-  overflow: hidden;
-  border-radius: 22px;
-  padding: 44px;
-  color: #fff;
-  background: linear-gradient(135deg, #8b0902 0%, #b3120a 45%, #e63924 100%);
-  box-shadow: 0 24px 48px rgba(139, 9, 2, 0.35);
-  animation: fadeUp 0.6s ease both;
-}
-
-.authVisual::before {
-  content: "";
-  position: absolute;
-  top: -120px;
-  right: -80px;
-  width: 240px;
-  height: 240px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-}
-
-.authVisual::after {
-  content: "";
-  position: absolute;
-  bottom: -140px;
-  left: -60px;
-  width: 260px;
-  height: 260px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.visualTop {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 28px;
-}
-
-.visualLogo {
-  width: 170px;
-  height: auto;
-  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.32));
-}
-
-.visualBadge {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-weight: 700;
-}
-
-.visualTitle {
-  position: relative;
-  z-index: 1;
-  font-family: "Playfair Display", serif;
-  font-size: 36px;
-  line-height: 1.1;
-  margin: 0 0 16px;
-}
-
-.visualCopy {
-  position: relative;
-  z-index: 1;
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0 0 24px;
-}
-
-.visualHighlights {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.highlightCard {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  padding: 16px;
-  border-radius: 14px;
-  backdrop-filter: blur(6px);
-  animation: floatIn 0.7s ease both;
-}
-
-.highlightCard:nth-child(2) {
-  animation-delay: 0.05s;
-}
-
-.highlightCard:nth-child(3) {
-  animation-delay: 0.1s;
-}
-
-.highlightCard:nth-child(4) {
-  animation-delay: 0.15s;
-}
-
-.highlightTitle {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 6px;
-}
-
-.highlightText {
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.visualFoot {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 26px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.visualSeal {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.3));
 }
 
 .authCard {
+  width: 100%;
   background: #fff;
   border-radius: 22px;
   padding: 40px;
   box-shadow: 0 24px 40px rgba(20, 20, 40, 0.12);
   border: 1px solid #eceff3;
   animation: fadeUp 0.6s ease 0.15s both;
+}
+
+.authCard,
+.authCard * {
+  box-sizing: border-box;
 }
 
 .cardHeader {
@@ -232,7 +116,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .field {
@@ -242,22 +126,29 @@
 }
 
 .label {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #6d6d6d;
+  color: #575757;
 }
 
 .input,
 .select {
   width: 100%;
-  padding: 14px 16px;
-  border: 1px solid #d7d9dd;
-  border-radius: 12px;
-  background: #f8f9fb;
+  padding: 15px 16px;
+  border: 1px solid #d4d8df;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fbfbfc 0%, #f4f6fa 100%);
   font-size: 15px;
+  color: #1d1d1d;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.input,
+.select,
+.primaryButton {
+  min-width: 0;
 }
 
 .input:focus,
@@ -268,31 +159,22 @@
   box-shadow: 0 0 0 3px rgba(179, 11, 0, 0.12);
 }
 
+.input::placeholder {
+  color: #9096a3;
+}
+
 .gridTwo {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  column-gap: 40px;
+  row-gap: 8px;
 }
 
-.formRow {
+.actionRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-}
-
-.checkboxRow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  color: #5b5b5b;
-}
-
-.checkboxRow input {
-  width: 16px;
-  height: 16px;
-  accent-color: #b30b00;
 }
 
 .inlineLink {
@@ -332,6 +214,21 @@
   font-size: 13px;
   color: #6a4a47;
   border: 1px solid #f1d6d2;
+}
+
+.errorMessage {
+  color: #b30b00;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.formError {
+  background: #fff0f0;
+  border: 1px solid #f5c2c2;
+  color: #8b0000;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 13px;
 }
 
 .switchRow {
@@ -379,18 +276,6 @@
   .authFrame {
     grid-template-columns: 1fr;
   }
-
-  .authVisual {
-    order: 2;
-  }
-
-  .authCard {
-    order: 1;
-  }
-
-  .visualTitle {
-    font-size: 30px;
-  }
 }
 
 @media (max-width: 640px) {
@@ -398,16 +283,15 @@
     padding: 24px 16px;
   }
 
-  .authVisual,
   .authCard {
     padding: 28px;
   }
 
-  .gridTwo {
-    grid-template-columns: 1fr;
+  .pageBrand {
+    margin-bottom: 18px;
   }
 
-  .visualHighlights {
+  .gridTwo {
     grid-template-columns: 1fr;
   }
 }

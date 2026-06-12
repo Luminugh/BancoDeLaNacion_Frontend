@@ -44,11 +44,7 @@ export default function LoginForm() {
           placeholder="Ingresa tu contrasena"
         />
       </div>
-      <div className={styles.formRow}>
-        <label className={styles.checkboxRow}>
-          <input type="checkbox" />
-          Recordarme
-        </label>
+      <div className={styles.actionRow}>
         <a className={styles.inlineLink} href="#">Olvide mi contrasena</a>
       </div>
       <button type="submit" className={styles.primaryButton}>Ingresar</button>

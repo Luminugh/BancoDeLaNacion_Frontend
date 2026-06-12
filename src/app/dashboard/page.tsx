@@ -1,10 +1,10 @@
 'use client'
 import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { getAccounts } from '../../services/accounts/accountService'
 import { getLoans } from '../../services/loans/loanService'
 import { Account, Loan } from '../../types/models'
 import useAuthStore from '../../store/authStore'
-import ProtectedPage from '../../components/shared/ProtectedPage'
 import styles from '../../components/shared/protected.module.css'
 
 export default function DashboardPage() {
@@ -15,49 +15,78 @@ export default function DashboardPage() {
   const totalBalance = accounts.reduce((sum, account) => sum + Number(account.balance || 0), 0)
   const activeLoans = loans.filter((loan) => loan.status === 'ACTIVE').length
 
+  const lastSession = new Date().toLocaleString('es-PE', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+
+  const quickActions = [
+    { label: 'Transferir dinero', href: '/transfers' },
+    { label: 'Pagar tarjetas', href: '/accounts' },
+    { label: 'Pagar servicios', href: '/accounts' },
+    { label: 'Ver estados de cuenta', href: '/accounts' },
+  ]
+
   useEffect(() => {
     getAccounts().then((r) => setAccounts(r)).catch(() => {})
     getLoans().then((r) => setLoans(r)).catch(() => {})
   }, [])
 
   return (
-    <ProtectedPage
-      eyebrow="Panel de control"
-      title={`Bienvenido${user ? `, ${user.firstName}` : ''}`}
-      subtitle="Consulta tus cuentas, presta seguimiento a tus préstamos y accede a las operaciones clave desde un solo lugar."
-      primaryAction={{ label: 'Ver cuentas', href: '/accounts' }}
-      secondaryAction={{ label: 'Nueva transferencia', href: '/transfers' }}
-      metrics={[
-        { label: 'Cuentas', value: String(accounts.length), hint: 'Productos activos' },
-        { label: 'Saldo total', value: `S/ ${totalBalance.toFixed(2)}`, hint: 'Suma consolidada' },
-        { label: 'Préstamos', value: String(loans.length), hint: 'Operaciones registradas' },
-        { label: 'Activos', value: String(activeLoans), hint: 'Préstamos vigentes' },
-      ]}
-    >
-      <section className={styles.gridTwo}>
+    <div className={styles.dashboardShell}>
+      <header className={styles.dashboardHeader}>
+        <div>
+          <div className={styles.dashboardBadge}>Banco de la Nación</div>
+          <h1 className={styles.dashboardTitle}>Portal operativo interno</h1>
+          <p className={styles.dashboardSubtitle}>Acceso rápido a las funciones principales del portal.</p>
+        </div>
+        <div className={styles.dashboardUserArea}>
+          <div className={styles.dashboardWelcome}>Bienvenido{user ? `, ${user.firstName}` : ''}</div>
+          <div className={styles.dashboardMeta}>Última sesión: {lastSession}</div>
+        </div>
+      </header>
+
+      <section className={styles.metrics}>
+        <article className={styles.metricCard}>
+          <div className={styles.metricLabel}>Cuentas</div>
+          <div className={styles.metricValue}>{accounts.length}</div>
+          <div className={styles.metricHint}>Productos activos</div>
+        </article>
+        <article className={styles.metricCard}>
+          <div className={styles.metricLabel}>Saldo total</div>
+          <div className={styles.metricValue}>S/ {totalBalance.toFixed(2)}</div>
+          <div className={styles.metricHint}>Saldo consolidado</div>
+        </article>
+        <article className={styles.metricCard}>
+          <div className={styles.metricLabel}>Préstamos vigentes</div>
+          <div className={styles.metricValue}>{activeLoans}</div>
+          <div className={styles.metricHint}>Operaciones abiertas</div>
+        </article>
+        <article className={styles.metricCard}>
+          <div className={styles.metricLabel}>Movimientos</div>
+          <div className={styles.metricValue}>{accounts.length * 2}</div>
+          <div className={styles.metricHint}>Consultas recientes</div>
+        </article>
+      </section>
+
+      <section className={styles.sectionRow}>
         <article className={styles.card}>
           <div className={styles.cardHeader}>
             <div>
-              <h2 className={styles.cardTitle}>Resumen de cuentas</h2>
-              <p className={styles.cardText}>Un vistazo rápido a tus cuentas y estado actual.</p>
+              <h2 className={styles.cardTitle}>Acceso rápido</h2>
+              <p className={styles.cardText}>Selecciona la función más importante para ti.</p>
             </div>
-            <span className={styles.badge}>{accounts.length} cuentas</span>
           </div>
           <div className={styles.cardBody}>
-            <div className={styles.panelList}>
-              {accounts.length > 0 ? (
-                accounts.map((a) => (
-                  <div key={a.id} className={styles.panelItem}>
-                    <div className={styles.itemMain}>
-                      <div className={styles.itemTitle}>{a.accountNumber}</div>
-                      <div className={styles.itemSubtitle}>{a.currency} • {a.status}</div>
-                    </div>
-                    <div className={styles.badge}>{a.currency} {Number(a.balance).toFixed(2)}</div>
-                  </div>
-                ))
-              ) : (
-                <div className={styles.emptyState}>Todavía no tienes cuentas cargadas en esta sesión.</div>
-              )}
+            <div className={styles.quickActions}>
+              {quickActions.map((action) => (
+                <Link key={action.label} href={action.href} className={styles.quickActionCard}>
+                  <div className={styles.quickActionTitle}>{action.label}</div>
+                </Link>
+              ))}
             </div>
           </div>
         </article>
@@ -65,33 +94,25 @@ export default function DashboardPage() {
         <article className={styles.card}>
           <div className={styles.cardHeader}>
             <div>
-              <h2 className={styles.cardTitle}>Alertas y seguimiento</h2>
-              <p className={styles.cardText}>Indicadores rápidos para guiar tu siguiente acción.</p>
+              <h2 className={styles.cardTitle}>Mis productos</h2>
+              <p className={styles.cardText}>Tus cuentas activas y su saldo.</p>
             </div>
           </div>
           <div className={styles.cardBody}>
-            <div className={styles.panelList}>
-              <div className={styles.panelItem}>
-                <div className={styles.itemMain}>
-                  <div className={styles.itemTitle}>Préstamos vigentes</div>
-                  <div className={styles.itemSubtitle}>Estado actual de tus productos crediticios</div>
-                </div>
-                <div className={styles.badge}>{activeLoans}</div>
-              </div>
-              <div className={styles.panelItem}>
-                <div className={styles.itemMain}>
-                  <div className={styles.itemTitle}>Acceso rápido</div>
-                  <div className={styles.itemSubtitle}>Ve a transferencias o cuentas cuando lo necesites</div>
-                </div>
-                <div className={styles.badge}>Disponible</div>
-              </div>
-              <div className={styles.panelItem}>
-                <div className={styles.itemMain}>
-                  <div className={styles.itemTitle}>Seguridad</div>
-                  <div className={styles.itemSubtitle}>Tu sesión está protegida por token autenticado</div>
-                </div>
-                <div className={styles.badge}>Activa</div>
-              </div>
+            <div className={styles.productCards}>
+              {accounts.length > 0 ? (
+                accounts.map((account) => (
+                  <div key={account.id} className={styles.productCard}>
+                    <div>
+                      <div className={styles.productLabel}>{account.currency} • {account.status}</div>
+                      <div className={styles.productTitle}>{account.accountNumber}</div>
+                    </div>
+                    <div className={styles.productBalance}>S/ {Number(account.balance).toFixed(2)}</div>
+                  </div>
+                ))
+              ) : (
+                <div className={styles.emptyState}>No hay cuentas cargadas aún.</div>
+              )}
             </div>
           </div>
         </article>
@@ -100,8 +121,8 @@ export default function DashboardPage() {
       <section className={styles.card}>
         <div className={styles.cardHeader}>
           <div>
-            <h2 className={styles.cardTitle}>Préstamos recientes</h2>
-            <p className={styles.cardText}>Detalle de tus préstamos y saldos pendientes.</p>
+            <h2 className={styles.cardTitle}>Resumen de préstamos</h2>
+            <p className={styles.cardText}>Estado actual de tus compromisos financieros.</p>
           </div>
         </div>
         <div className={styles.cardBody}>
@@ -120,6 +141,6 @@ export default function DashboardPage() {
           </div>
         </div>
       </section>
-    </ProtectedPage>
+    </div>
   )
 }

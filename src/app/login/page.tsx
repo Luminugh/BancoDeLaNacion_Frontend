@@ -7,7 +7,7 @@ export default function LoginPage() {
   return (
     <AuthShell
       title="Iniciar sesion"
-      subtitle="Accede con tu correo y contrasena para continuar."
+      subtitle="Ingresa con tus credenciales."
       switchText="No tienes cuenta?"
       switchLinkText="Crear cuenta"
       switchHref="/register"

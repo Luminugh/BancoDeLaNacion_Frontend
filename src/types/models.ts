@@ -16,7 +16,7 @@ export interface Account {
   accountNumber: string
   balance: number
   currency: string
-  status: 'ACTIVE' | 'INACTIVE' | 'BLOCKED'
+  status: 'PENDING' | 'ACTIVE' | 'INACTIVE' | 'BLOCKED'
   userId: string
   createdAt: string
 }
